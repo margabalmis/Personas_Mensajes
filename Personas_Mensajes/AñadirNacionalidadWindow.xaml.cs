@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personas_Mensajes.vistas_modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace Personas_Mensajes
     /// </summary>
     public partial class AñadirNacionalidadWindow : Window
     {
+        AñadirNacionalidadWindowVM vmNacionalidad;
         public AñadirNacionalidadWindow()
         {
             InitializeComponent();
+            vmNacionalidad = new AñadirNacionalidadWindowVM();
+            this.DataContext = vmNacionalidad;
+        }
+
+        private void AceptarButton_Click(object sender, RoutedEventArgs e)
+        {
+            vmNacionalidad.GuardarNacionalidad();
+            DialogResult = true;
+
         }
     }
 }

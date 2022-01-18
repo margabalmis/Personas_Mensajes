@@ -9,7 +9,7 @@
     <Grid>
         <ListBox
             ItemsSource="{Binding Path=ListaPersonas}"
-            SelectedItem="{Binding Path=PersonaSelecionada}">
+            SelectedItem="{Binding Path=PersonaSeleccionada}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel

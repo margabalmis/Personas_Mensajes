@@ -1,4 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
+using Personas_Mensajes.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +38,17 @@ namespace Personas_Mensajes.vistas_modelos
 
         public ConsultarPersonaVM()
         {
+            Persona personaConsultada = WeakReferenceMessenger.Default.Send<PersonaAConsultarMessage>();
 
+            if (personaConsultada != null) 
+            {
+                Edad = personaConsultada.Edad;
+                Nombre = personaConsultada.Nombre;
+                Nacionalidad = personaConsultada.Nacionalidad;
 
+            }
+            
+            
         }
 
     }

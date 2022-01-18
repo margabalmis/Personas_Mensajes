@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using Personas_Mensajes.Servicios;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Personas_Mensajes.vistas_modelos
 {
     class AñadirNacionalidadWindowVM : ObservableRecipient
     {
-        private NavegacionService servicio;
+       
         public AñadirNacionalidadWindowVM()
         {
 
@@ -34,7 +35,7 @@ namespace Personas_Mensajes.vistas_modelos
         }
         public void GuardarNacionalidad()
         {
-            Nacionalidades.Add(Nacionalidad);
+            WeakReferenceMessenger.Default.Send(new AñadirNacionalidadMessage(Nacionalidad));
         }
     }
 }

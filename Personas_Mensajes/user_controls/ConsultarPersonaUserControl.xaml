@@ -11,6 +11,7 @@
             Margin="8,16,8,0">
             Nombre</TextBlock>
         <TextBox
+            IsReadOnly="True"
             Text="{Binding Path=Nombre}"
             Margin="8,0"
             x:Name="NombreTextBox"></TextBox>
@@ -18,6 +19,7 @@
         <TextBlock
             Margin="8,16,8,0">Edad</TextBlock>
         <TextBox
+            IsReadOnly="True"
             Text="{Binding Path=Edad}"
             Margin="8,0"
             x:Name="EdadTextBox"></TextBox>
@@ -26,6 +28,7 @@
             Margin="8,16,8,0">Nacionalidad</TextBlock>
         <TextBox
             Text="{Binding Path=Nacionalidad}"
+            IsReadOnly="True"
             Margin="8,0"
             x:Name="NacionalidadTextBox"></TextBox>
     </StackPanel>

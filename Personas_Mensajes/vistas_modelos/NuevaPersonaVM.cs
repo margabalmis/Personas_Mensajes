@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using Personas_Mensajes.Servicios;
 using System;
 using System.Collections.Generic;
@@ -22,11 +23,17 @@ namespace Personas_Mensajes.vistas_modelos
             VentanaAñadirNacionalidad = new RelayCommand(AñadirNacionalidad);
             AñadirPersona = new RelayCommand(AddPerson);
             Nacionalidades = new ObservableCollection<string> { "Española", "Italiana", "Portuguesa", "Francesa" };
+            WeakReferenceMessenger.Default.Register<AñadirNacionalidadMessage>
+                (this, (r, m) =>
+                {
+                    Nacionalidades.Add(m.Value);
+                });
         }
 
         private void AddPerson()
         {
             Persona p = new Persona(Nombre, Edad, Nacionalidad);
+            WeakReferenceMessenger.Default.Send(new AñadirPersonaMessage(p));
             Nombre = "";
             Edad = "";
             Nacionalidad = "";

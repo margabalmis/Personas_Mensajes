@@ -29,4 +29,5 @@ namespace Personas_Mensajes.user_controls
             this.DataContext = vmConsultarPersona;
         }
     }
+
 }
