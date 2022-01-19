@@ -11,6 +11,11 @@ namespace Personas_Mensajes
         private string nombre;
         private string edad;
         private string nacionalidad;
+
+        public Persona()
+        {
+        }
+
         public Persona(string nombre, string edad, string nacionalidad)
         {
             Nombre = nombre;

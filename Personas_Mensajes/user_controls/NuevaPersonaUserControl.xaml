@@ -11,14 +11,14 @@
             Margin="8,16,8,0">
             Nombre</TextBlock>
         <TextBox
-            Text="{Binding Path=Nombre}"
+            Text="{Binding Path=NuevaPersona.Nombre}"
             Margin="8,0"
             x:Name="NombreTextBox"></TextBox>
 
         <TextBlock
             Margin="8,16,8,0">Edad</TextBlock>
         <TextBox
-            Text="{Binding Path=Edad}"
+            Text="{Binding Path=NuevaPersona.Edad}"
             Margin="8,0"
             x:Name="EdadTextBox"></TextBox>
 
@@ -28,7 +28,7 @@
             Orientation="Horizontal">
             <ComboBox
                 ItemsSource="{Binding Path=Nacionalidades}"
-                SelectedItem="{Binding Path=Nacionalidad}"
+                SelectedItem="{Binding Path=NuevaPersona.Nacionalidad}"
                 Width="140"
                 Height="20"
                 Margin="8,0"></ComboBox>

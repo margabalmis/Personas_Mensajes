@@ -20,6 +20,7 @@ namespace Personas_Mensajes.vistas_modelos
         public NuevaPersonaVM()
         {
             servicio = new NavegacionService();
+            NuevaPersona = new Persona();
             VentanaAñadirNacionalidad = new RelayCommand(AñadirNacionalidad);
             AñadirPersona = new RelayCommand(AddPerson);
             Nacionalidades = new ObservableCollection<string> { "Española", "Italiana", "Portuguesa", "Francesa" };
@@ -32,11 +33,7 @@ namespace Personas_Mensajes.vistas_modelos
 
         private void AddPerson()
         {
-            Persona p = new Persona(Nombre, Edad, Nacionalidad);
-            WeakReferenceMessenger.Default.Send(new AñadirPersonaMessage(p));
-            Nombre = "";
-            Edad = "";
-            Nacionalidad = "";
+            WeakReferenceMessenger.Default.Send(new AñadirPersonaMessage(NuevaPersona));
         }
 
         private ObservableCollection<string> nacionalidades;
@@ -54,26 +51,16 @@ namespace Personas_Mensajes.vistas_modelos
             get { return nacionalidad; }
             set { SetProperty(ref nacionalidad, value); }
         }
-        private string nombre;
+        private Persona nuevaPersona;
 
-        public string Nombre
+        public Persona NuevaPersona
         {
-            get { return nombre; }
-            set { SetProperty(ref nombre, value); }
+            get { return nuevaPersona; }
+            set { SetProperty(ref nuevaPersona, value); }
         }
-
-        private string edad;
-
-        public string Edad
-        {
-            get { return edad; }
-            set { SetProperty(ref edad, value); }
-        }
-
         public void AñadirNacionalidad()
         {
             servicio.CargarDialogoNacionalidad();
         }
-
     }
 }
