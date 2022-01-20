@@ -13,5 +13,10 @@ namespace Personas_Mensajes
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Personas_Mensajes.Properties.Settings.Default.clave);
+        }
     }
 }

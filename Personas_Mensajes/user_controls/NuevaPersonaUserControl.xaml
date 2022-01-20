@@ -3,36 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
              xmlns:local="clr-namespace:Personas_Mensajes.user_controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <TextBlock
-            Margin="8,16,8,0">
-            Nombre</TextBlock>
-        <TextBox
-            Text="{Binding Path=NuevaPersona.Nombre}"
-            Margin="8,0"
-            x:Name="NombreTextBox"></TextBox>
-
-        <TextBlock
-            Margin="8,16,8,0">Edad</TextBlock>
-        <TextBox
-            Text="{Binding Path=NuevaPersona.Edad}"
-            Margin="8,0"
-            x:Name="EdadTextBox"></TextBox>
-
-        <TextBlock
-            Margin="8,16,8,0">Nacionalidad</TextBlock>
+        <inputLayout:SfTextInputLayout
+            Hint="Nombre"
+             Margin="16"
+            HintFloatMode="Float"
+            HelperText="Nombre de la persona">
+            <inputLayout:SfTextInputLayout.LeadingView>
+                <Image Source="/assets/person.png"/>
+            </inputLayout:SfTextInputLayout.LeadingView>
+                <TextBox
+                    Text="{Binding Path=NuevaPersona.Nombre}"
+                    x:Name="NombreTextBox"/>
+        </inputLayout:SfTextInputLayout>
+        <inputLayout:SfTextInputLayout
+            Margin="16"
+            Hint="Edad"
+            HintFloatMode="Float"
+            HelperText="Edad de la persona">
+            <inputLayout:SfTextInputLayout.LeadingView>
+                <Image Source="/assets/cake.png"/>
+            </inputLayout:SfTextInputLayout.LeadingView>
+            <TextBox
+                Text="{Binding Path=NuevaPersona.Edad}"
+                x:Name="EdadTextBox"></TextBox>
+        </inputLayout:SfTextInputLayout>
+        
         <StackPanel
+             Margin="16"
             Orientation="Horizontal">
-            <ComboBox
+            <inputLayout:SfTextInputLayout
+            Hint="Nacionadilad"
+            HintFloatMode="Float"
+            HelperText="Nacionalidad de la persona">
+                <inputLayout:SfTextInputLayout.LeadingView>
+                    <Image Source="/assets/world.png"/>
+                </inputLayout:SfTextInputLayout.LeadingView>
+                <ComboBox
                 ItemsSource="{Binding Path=Nacionalidades}"
                 SelectedItem="{Binding Path=NuevaPersona.Nacionalidad}"
                 Width="140"
                 Height="20"
                 Margin="8,0"></ComboBox>
+            </inputLayout:SfTextInputLayout>
             <Button
+                Margin="8,0,0,20"
                 Command="{Binding Path=VentanaAñadirNacionalidad}"
                 x:Name="AddNationality"
                 Width="20">+</Button>

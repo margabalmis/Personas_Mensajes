@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personas_Mensajes"
+        xmlns:properties="clr-namespace:Personas_Mensajes.Properties"
         mc:Ignorable="d"
     Title="Personas"
     Height="450"
@@ -41,6 +42,10 @@
                 Command="{Binding Path=ConsultarPersonaCommand}">
                 Consultar Persona</Button>
         </StackPanel>
+        <TextBlock 
+            Margin="8"
+            DockPanel.Dock="Bottom"
+            Text="{Binding Source={x:Static properties:Settings.Default}, Path=version}"></TextBlock>
 
         <Border
             BorderBrush="Black"
